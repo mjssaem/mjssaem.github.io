@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안녕하세요! 밍주의 자기소개 페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff0f6 50%, #f0f5ff 100%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .floating-anim {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 182, 193, 0.3);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 md:p-8">
+
+    <div class="max-w-3xl w-full glass-card rounded-3xl p-6 md:p-10 shadow-2xl my-8">
+        
+        <!-- Top Image Section -->
+        <div class="flex flex-col items-center justify-center mb-8 relative">
+            <div class="relative group cursor-pointer floating-anim">
+                <!-- Profile Image Display Area -->
+                <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-lg bg-pink-100 flex items-center justify-center relative">
+                    <img id="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="밍주 프로필 사진" class="w-full h-full object-cover">
+                    <!-- Overlay hint for image upload -->
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold">
+                        <i class="fas fa-camera text-2xl mb-1"></i>
+                        <span>사진 변경하기</span>
+                    </div>
+                </div>
+                <input type="file" id="image-upload" accept="image/*" class="hidden" onchange="previewImage(event)">
+                
+                <!-- Badge -->
+                <span class="absolute bottom-2 right-2 bg-gradient-to-r from-pink-400 to-rose-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                    ✨ Sparkle
+                </span>
+            </div>
+            
+            <h1 class="mt-6 text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight text-center">
+                안녕하세요, <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">밍주</span>입니다! 👋
+            </h1>
+            <p class="mt-2 text-gray-600 text-sm md:text-base font-medium text-center">
+                오늘도 한 걸음씩 성장하는 밍주의 소개 페이지입니다.
+            </p>
+        </div>
+
+        <!-- Info Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
+            
+            <!-- Item 1: Name -->
+            <div class="card-hover bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-100 p-5 rounded-2xl flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-pink-400 text-white flex items-center justify-center text-xl shadow-md shrink-0">
+                    <i class="fas fa-user-smile"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">Name</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-0.5">이름 (별명)</h3>
+                    <p class="text-pink-600 font-semibold text-xl mt-1">밍주</p>
+                </div>
+            </div>
+
+            <!-- Item 2: Goal -->
+            <div class="card-hover bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100 p-5 rounded-2xl flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-400 text-white flex items-center justify-center text-xl shadow-md shrink-0">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Dream</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-0.5">되고 싶은 것</h3>
+                    <p class="text-purple-600 font-semibold text-xl mt-1">보험설계사 💼</p>
+                </div>
+            </div>
+
+            <!-- Item 3: Method -->
+            <div class="card-hover bg-gradient-to-br from-blue-50 to-sky-50 border border-blue-100 p-5 rounded-2xl flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-sky-400 text-white flex items-center justify-center text-xl shadow-md shrink-0">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Method</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-0.5">탐구하는 방법</h3>
+                    <p class="text-sky-600 font-semibold text-xl mt-1">AI 도움을 받음 🤖</p>
+                </div>
+            </div>
+
+            <!-- Item 4: Interest -->
+            <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 p-5 rounded-2xl flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-400 text-white flex items-center justify-center text-xl shadow-md shrink-0">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Goal</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-0.5">관심 있는 문제</h3>
+                    <p class="text-amber-600 font-semibold text-xl mt-1">보험왕 되기 👑</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Cheering Message Section -->
+        <div class="mt-8 p-6 rounded-2xl bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 text-center border border-white/50">
+            <p class="text-gray-700 font-medium leading-relaxed">
+                "AI 스마트 도구를 적극 활용하여 최고의 플랜을 제공하는 <br class="hidden sm:inline">
+                <span class="font-bold text-pink-600">대표 보험 전문가</span>로 거듭나겠습니다!"
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center text-xs text-gray-400">
+            © 2026 밍주. All rights reserved.
+        </div>
+
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // Trigger file input on profile image click
+        document.querySelector('.group').addEventListener('click', () => {
+            document.getElementById('image-upload').click();
+        });
+
+        // Image Preview Function
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('profile-img');
+                output.src = reader.result;
+            };
+            if (event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
